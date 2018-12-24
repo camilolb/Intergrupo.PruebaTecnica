@@ -59,7 +59,7 @@ namespace Intergrupo.PruebaTecnica.Presentacion_.Controllers
         }
 
         // POST: api/Cliente
-        public async Task<HttpResponseMessage> Post(DominioCliente dominioCliente)
+        public HttpResponseMessage Post(DominioCliente dominioCliente)
         {
             var response = Request.CreateResponse(HttpStatusCode.InternalServerError);
 

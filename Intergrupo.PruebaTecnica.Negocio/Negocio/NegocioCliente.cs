@@ -8,25 +8,24 @@ using System.Threading.Tasks;
 
 namespace Intergrupo.PruebaTecnica.Negocio.Negocio
 {
-    
-
     public class NegocioCliente
     {
         public  DominioCliente ObtenerPorId(int id)
         {
-
             DominioCliente dominioCliente = null;
 
-            using (var dbContext = new PruebaTecnicaEntities())
+            if (id > 0)
             {
-                var item = dbContext.cliente.Where(x => x.Id == id).FirstOrDefault();
-
-                if (item != null
-                    && item.Id > 0)
+                using (var dbContext = new PruebaTecnicaEntities())
                 {
-                    dominioCliente = new DominioCliente();
+                    var item = dbContext.cliente.Where(x => x.Id == id).FirstOrDefault();
 
-                    dominioCliente = ObtenerDominioCliente(item);
+                    if (item != null
+                        && item.Id > 0)
+                    {
+                        dominioCliente = new DominioCliente();
+                        dominioCliente = ObtenerDominioCliente(item);
+                    }
                 }
             }
 
@@ -68,7 +67,6 @@ namespace Intergrupo.PruebaTecnica.Negocio.Negocio
                 {
                     var resultado = dbContext.cliente.Add(new cliente()
                     {
-
                         Nombres = dominioCliente.Nombres
                         , Apellidos = dominioCliente.Apellidos
                         , Celular = dominioCliente.Celular
@@ -116,14 +114,19 @@ namespace Intergrupo.PruebaTecnica.Negocio.Negocio
 
         public DominioCliente ObtenerDominioCliente(cliente entity)
         {
-            DominioCliente dominioCliente = new DominioCliente()
+            DominioCliente dominioCliente = null;
+
+            if (entity != null)
             {
-                Id = entity.Id
-                , Nombres = entity.Nombres
-                , Apellidos = entity.Apellidos
-                , Celular = entity.Celular
-                , Telefono = entity.Telefono
-            };
+                dominioCliente = new DominioCliente()
+                {
+                    Id = entity.Id
+                    , Nombres = entity.Nombres
+                    , Apellidos = entity.Apellidos
+                    , Celular = entity.Celular
+                    ,Telefono = entity.Telefono
+                };
+            }
 
             return dominioCliente;
         }

@@ -33,11 +33,11 @@
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>References\EntityFramework.dll</HintPath>
+      <HintPath>Referencias\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="entityframework.sqlserver, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>References\entityframework.sqlserver.dll</HintPath>
+      <HintPath>Referencias\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -57,12 +57,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="References\EntityFramework.dll" />
-    <Content Include="References\entityframework.sqlserver.dll" />
-    <Content Include="References\Newtonsoft.Json.dll" />
-    <Content Include="References\NLog.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Intergrupo.PruebaConcepto.Datos\Intergrupo.PruebaConcepto.Datos.csproj">
       <Project>{974c0803-3d77-4082-a626-e155960666e1}</Project>
       <Name>Intergrupo.PruebaConcepto.Datos</Name>
@@ -71,6 +65,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Referencias\EntityFramework.dll" />
+    <Content Include="Referencias\EntityFramework.SqlServer.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
