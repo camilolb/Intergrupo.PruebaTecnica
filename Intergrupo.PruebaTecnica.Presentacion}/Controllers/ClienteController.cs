@@ -14,14 +14,13 @@ namespace Intergrupo.PruebaTecnica.Presentacion_.Controllers
     public class ClienteController : ApiController
     {
         // GET: api/Cliente
-        public IEnumerable<DominioCliente> Get()
+        public HttpResponseMessage Get()
         {
             var response = Request.CreateResponse(HttpStatusCode.InternalServerError);
-            IList<DominioCliente> listaClientes = new List<DominioCliente>();
 
             try
             {
-                listaClientes = new NegocioCliente().ObtenerTodo();
+                IList<DominioCliente> listaClientes = new NegocioCliente().ObtenerTodo();
 
                 if (listaClientes != null
                     && listaClientes.Count > 0)
@@ -35,7 +34,7 @@ namespace Intergrupo.PruebaTecnica.Presentacion_.Controllers
                 response = Request.CreateResponse(HttpStatusCode.InternalServerError, ex);
             }
 
-            return listaClientes;
+            return response;
         }
 
         // GET: api/Cliente/5

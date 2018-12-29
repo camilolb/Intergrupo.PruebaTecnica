@@ -38,7 +38,7 @@
         {
             ClienteService.obtenerClientes().then(function (e)
             {
-                var listaClientes = e.data;
+                var listaClientes = angular.fromJson(e.data);
 
                 if (listaClientes != null
                     && listaClientes.length > 0)
