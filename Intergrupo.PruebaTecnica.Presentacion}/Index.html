@@ -15,7 +15,7 @@
 
     <div class="container-fluid header">
         <div class="col-md-5">
-            <h3>Prueba Técnica <span><small>Por Cristian López</small></span></h3>
+            <h3> <i class="fa fa-handshake-o" aria-hidden="true"></i> Prueba Técnica <span><small>Por Cristian López</small></span></h3>
         </div>
     </div>
 
@@ -39,7 +39,7 @@
                                    class="form-control"
                                    ng-required="true"
                                    ng-model="cliente.Apellidos"
-                                   placeholder="Introduce tu Contraseña">
+                                   placeholder="Introduce tu Apellido">
                         </div>
                         <div class="form-group">
                             <label>Telefono <span style="color: red; font-weight: bold"> *</span></label>
@@ -64,8 +64,28 @@
 
                 <div class="col-md-7 col-xs-12">
                     <h2>Lista de clientes</h2>
+                    <hr />
+                    <div class="container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre completo</th>
+                                    <th>Teléfono</th>
+                                    <th>Celular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in listaClientes">
+                                    <td>{{item.Id }}</td>
+                                    <td>{{item.Nombres }} {{ item.Apellidos}}</td>
+                                    <td>{{item.Telefono}}</td>
+                                    <td>{{item.Celular}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
 

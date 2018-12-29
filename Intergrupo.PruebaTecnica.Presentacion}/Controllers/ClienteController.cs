@@ -16,17 +16,23 @@ namespace Intergrupo.PruebaTecnica.Presentacion_.Controllers
         // GET: api/Cliente
         public IEnumerable<DominioCliente> Get()
         {
-
-            IList<DominioCliente> listaClientes = null;
+            var response = Request.CreateResponse(HttpStatusCode.InternalServerError);
+            IList<DominioCliente> listaClientes = new List<DominioCliente>();
 
             try
             {
-                listaClientes = new List<DominioCliente>();
                 listaClientes = new NegocioCliente().ObtenerTodo();
+
+                if (listaClientes != null
+                    && listaClientes.Count > 0)
+                {
+                    response = Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(listaClientes));
+                }
+                
             }
             catch (Exception ex)
             {
-
+                response = Request.CreateResponse(HttpStatusCode.InternalServerError, ex);
             }
 
             return listaClientes;

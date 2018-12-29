@@ -38,7 +38,7 @@ namespace Intergrupo.PruebaTecnica.Negocio.Negocio
 
             using (var dbContext = new PruebaTecnicaEntities())
             {
-                var lista = dbContext.cliente.ToList();
+                var lista = dbContext.cliente.OrderByDescending(x => x.Id).ToList();
 
                 if (lista != null
                     && lista.Count > 0)
